@@ -1,11 +1,12 @@
 package global.coda.hm;
 
-import global.coda.hm.Patient.Patient;
-import global.coda.hm.Patient.PatientUtil;
+import global.coda.hm.model.Patient;
+import global.coda.hm.serviceImpl.PatientServiceImpl;
 
 public class HospitalManagement {
   public static void main(String[] args){
-      PatientUtil util = new PatientUtil();
+      PatientServiceImpl util = new PatientServiceImpl(5);
+      util.getUserInput();
 
   }
 

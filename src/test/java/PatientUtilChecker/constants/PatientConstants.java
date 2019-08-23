@@ -1,6 +1,6 @@
 package PatientUtilChecker.constants;
 
-import global.coda.hm.Patient.Patient;
+import global.coda.hm.model.Patient;
 
 public class PatientConstants {
 

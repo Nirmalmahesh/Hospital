@@ -1,4 +1,4 @@
-package global.coda.hm.Patient;
+package global.coda.hm.model;
 
 public class Patient {
     private Integer patinetId;
@@ -33,6 +33,15 @@ public class Patient {
         this.patinetId = patinetId;
         this.patientName = patientName;
         this.homeTown = homeTown;
+    }
+
+    @Override
+    public String toString() {
+        return "model{" +
+                "patinetId=" + patinetId +
+                ", patientName='" + patientName + '\'' +
+                ", homeTown='" + homeTown + '\'' +
+                '}';
     }
 
     public Patient() {
