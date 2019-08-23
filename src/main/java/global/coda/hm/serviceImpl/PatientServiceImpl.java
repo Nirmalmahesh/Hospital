@@ -113,7 +113,7 @@ public class PatientServiceImpl implements PatientService {
                 throw new PatientNotFoundException(PatientConstants.PATIENT_NOT_FOUND);
             }
         }
-        return null;
+            throw  new PatientNotFoundException(PatientConstants.PATIENT_NOT_FOUND);
     }
 
     @Override
@@ -199,6 +199,7 @@ public class PatientServiceImpl implements PatientService {
             LOGGER.info(RESOURCE_PATIENT.getString("HM_INPUT_002"));
             LOGGER.info(RESOURCE_PATIENT.getString("HM_INPUT_003"));
             LOGGER.info(RESOURCE_PATIENT.getString("HM_INPUT_004"));
+            LOGGER.info(RESOURCE_PATIENT.getString("HM_INPUT_011"));
             LOGGER.info(RESOURCE_PATIENT.getString("HM_INPUT_008"));
             LOGGER.info(RESOURCE_PATIENT.getString("HM_INPUT_009"));
             input = scan.nextInt();
@@ -219,11 +220,29 @@ public class PatientServiceImpl implements PatientService {
                     updateUserWithUserInput();
                     getUserInput();
                 }
+                case 4:
+                {
+                    deletePatientWithUserInout();
+                    getUserInput();
+                }
                 case 5:
+                {
+                    getAllPatients();
+                    getUserInput();;
+                }
+                case 6:
                     System.exit(0);
                 default:
                     getUserInput();
             }
+    }
+
+    private void getAllPatients() {
+        for(int i = 0;i<getNumberOfPateintsAvailable(patients);i++)
+        {
+            LOGGER.info(MessageFormat.format(RESOURCE_PATIENT.getString("HM_I008"),i+1));
+            LOGGER.info(patients[i].toString());
+        }
     }
 
     private void updateUserWithUserInput() {
@@ -234,11 +253,17 @@ public class PatientServiceImpl implements PatientService {
         LOGGER.info(RESOURCE_PATIENT.getString("HM_INPUT_006"));
         newUser.setPatientName(scan.nextLine());
         LOGGER.info(RESOURCE_PATIENT.getString("HM_INPUT_007"));
-        newUser.setPatientName(scan.nextLine());
+        newUser.setHomeTown(scan.nextLine());
         updatePatient(oldUser,newUser);
         getUserInput();
-
-
+    }
+    public void deletePatientWithUserInout()
+    {
+        int index;
+        LOGGER.info(RESOURCE_PATIENT.getString("HM_INPUT_005"));
+        Patient patient = new Patient();
+        patient.setPatinetId(scan.nextInt());
+       deletePatient(patient);
     }
 
     private Patient readPatientWithUserInput() {
@@ -257,6 +282,7 @@ public class PatientServiceImpl implements PatientService {
 
     private void inputForCreateNewUser() {
         Patient patient = new Patient();
+        int index = 0;
         LOGGER.info(RESOURCE_PATIENT.getString("HM_INPUT_005"));
         patient.setPatinetId(scan.nextInt());
         scan.nextLine();
@@ -265,9 +291,15 @@ public class PatientServiceImpl implements PatientService {
         LOGGER.info(RESOURCE_PATIENT.getString("HM_INPUT_007"));
         patient.setHomeTown(scan.nextLine());
         try {
-            createPatient(patient);
-        } catch (NoMoreAdmissionException e) {
-            LOGGER.error(PatientConstants.PATIENT_NOT_FOUND);
+            index = getIndexOfPatient(patient);
+            LOGGER.info(PatientConstants.USER_ID_DUBKICATION);
+
+        } catch (PatientNotFoundException e) {
+            try {
+                createPatient(patient);
+            } catch (NoMoreAdmissionException ex) {
+                ex.printStackTrace();
+            }
         }
 
     }
