@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4b11450-bd5a-4be5-914f-3bd883a0580d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/global/coda/hm/HospitalManagement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/global/coda/hm/HospitalManagement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/global/coda/hm/Patient/Patient.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/global/coda/hm/Patient/PatientInter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/global/coda/hm/Patient/PatientUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/global/coda/hm/constants/PatientConstants.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/global/coda/hm/constants/PatientConstants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/PatientUtilChecker/CrudChecker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/PatientUtilChecker/CrudChecker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/PatientUtilChecker/constants/PatientConstants.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/PatientUtilChecker/constants/PatientConstants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/resources/patient_info_test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/resources/patient_info_test.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hm/HospitalManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hm/HospitalManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hm/Patient/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hm/model/Patient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hm/Patient/PatientInter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hm/service/PatientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hm/Patient/PatientUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hm/serviceImpl/PatientServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hm/constants/PatientConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hm/constants/PatientConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/patient_info.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/patient_info.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PatientUtilChecker/CrudChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PatientUtilChecker/CrudChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PatientUtilChecker/constants/PatientConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PatientUtilChecker/constants/PatientConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/patient_info_test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/patient_info_test.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -30,6 +12,20 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -104,8 +100,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/global/coda/hm/serviceImpl/PatientServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="238" column="23" lean-forward="true" selection-start-line="238" selection-start-column="23" selection-end-line="238" selection-end-column="23" />
+            <state relative-caret-position="180">
+              <caret line="220" column="17" lean-forward="true" selection-start-line="220" selection-start-column="17" selection-end-line="220" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1245#1246#0" expanded="true" />
@@ -658,7 +654,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566563512876" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566672144133" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -785,7 +781,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1566540892819</updated>
-      <workItem from="1566540897172" duration="18762000" />
+      <workItem from="1566540897172" duration="19546000" />
     </task>
     <servers />
   </component>
@@ -822,19 +818,20 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18762000" />
+    <option name="totallyTimeSpent" value="19546000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="UI Designer" order="1" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Designer" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.21610738" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.21610738" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="2" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="3" weight="0.3286119" />
@@ -850,7 +847,7 @@
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Maven Projects" order="1" />
       <window_info anchor="right" id="Gradle" order="2" />
-      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.3295302" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette" order="6" />
@@ -966,8 +963,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/global/coda/hm/serviceImpl/PatientServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="238" column="23" lean-forward="true" selection-start-line="238" selection-start-column="23" selection-end-line="238" selection-end-column="23" />
+        <state relative-caret-position="180">
+          <caret line="220" column="17" lean-forward="true" selection-start-line="220" selection-start-column="17" selection-end-line="220" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1245#1246#0" expanded="true" />
