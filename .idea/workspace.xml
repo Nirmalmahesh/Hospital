@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="58235fab-d421-4388-a239-f4010ec5e29d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hm/HospitalManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hm/HospitalManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hm/model/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hm/model/Patient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hm/service/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hm/service/PatientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/global/coda/hm/serviceImpl/PatientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/coda/hm/serviceImpl/PatientServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/patient_info.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/patient_info.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/patient_info_test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/patient_info_test.properties" afterDir="false" />
-    </list>
+    <list default="true" id="58235fab-d421-4388-a239-f4010ec5e29d" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -88,8 +81,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/global/coda/hm/HospitalManagement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="136">
+              <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -100,8 +93,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/global/coda/hm/serviceImpl/PatientServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="40" column="58" selection-start-line="40" selection-start-column="58" selection-end-line="40" selection-end-column="58" />
+            <state relative-caret-position="61">
+              <caret line="122" column="16" selection-start-line="122" selection-start-column="16" selection-end-line="122" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -667,7 +660,7 @@
     <property name="SearchEverywhereHistoryKey" value="InputMismatchException&#9;PSI&#9;JAVA://java.util.InputMismatchException" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566818719789" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566819329064" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Demo" />
   </component>
   <component name="RunDashboard">
@@ -713,16 +706,15 @@
       <option name="presentableId" value="Default" />
       <updated>1566540892819</updated>
       <workItem from="1566540897172" duration="22244000" />
-      <workItem from="1566792261666" duration="12878000" />
+      <workItem from="1566792261666" duration="13484000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15346000" />
+    <option name="totallyTimeSpent" value="15952000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="UI Designer" order="1" />
@@ -731,7 +723,7 @@
       <window_info id="Designer" order="4" />
       <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.31342283" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="2" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="3" weight="0.3286119" />
@@ -739,7 +731,7 @@
       <window_info anchor="bottom" id="Build" order="5" weight="0.32719547" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="8" visible="true" weight="0.27053824" />
+      <window_info anchor="bottom" id="Run" order="8" weight="0.27053824" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
@@ -882,16 +874,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/global/coda/hm/HospitalManagement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/patient_info_test.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -899,10 +881,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/global/coda/hm/HospitalManagement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/global/coda/hm/serviceImpl/PatientServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="40" column="58" selection-start-line="40" selection-start-column="58" selection-end-line="40" selection-end-column="58" />
+        <state relative-caret-position="61">
+          <caret line="122" column="16" selection-start-line="122" selection-start-column="16" selection-end-line="122" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
