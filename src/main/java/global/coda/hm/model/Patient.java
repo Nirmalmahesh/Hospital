@@ -1,9 +1,12 @@
 package global.coda.hm.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Patient {
     private int patinetId;
     private String patientName;
-    private String homeTown;
+    private List<String> patientAddress;
 
     public Integer getPatinetId() {
         return patinetId;
@@ -21,24 +24,19 @@ public class Patient {
         this.patientName = patientName;
     }
 
-    public String getHomeTown() {
-        return homeTown;
+    public void setPatinetId(int patinetId) {
+        this.patinetId = patinetId;
     }
 
-    public void setHomeTown(String homeTown) {
-        this.homeTown = homeTown;
+    public List<String> getPatientAddress() {
+        return patientAddress;
     }
 
-
-    @Override
-    public String toString() {
-        return "model{" +
-                "patinetId=" + patinetId +
-                ", patientName='" + patientName + '\'' +
-                ", homeTown='" + homeTown + '\'' +
-                '}';
+    public void setPatientAddress(List<String> patientAddress) {
+        this.patientAddress = patientAddress;
     }
 
     public Patient() {
+        patientAddress = new ArrayList<String>();
     }
 }

@@ -5,7 +5,7 @@ import global.coda.hm.serviceImpl.PatientServiceImpl;
 
 public class HospitalManagement {
   public static void main(String[] args){
-      PatientServiceImpl util = new PatientServiceImpl(0);
+      PatientServiceImpl util = new PatientServiceImpl();
       util.triggerApplication();
   }
 
