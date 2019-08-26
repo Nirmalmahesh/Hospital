@@ -13,6 +13,6 @@ public interface PatientService {
     public Patient getPatient();
     public int getNumberOfPateintsAvailable(Patient[] patients);
     public int getIndexOfPatient(Patient patient) throws PatientNotFoundException;
-    public void getUserInput();
+    public void triggerApplication();
 
 }

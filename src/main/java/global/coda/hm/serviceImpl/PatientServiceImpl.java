@@ -9,6 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -17,6 +19,7 @@ import java.util.Scanner;
  * Performing CRUD operatrions
  */
 public class PatientServiceImpl implements PatientService {
+
     Scanner scan;
     Logger LOGGER;
     int numberOfPatients;
@@ -89,7 +92,7 @@ public class PatientServiceImpl implements PatientService {
         int length = patients.length;
         int available = getNumberOfPateintsAvailable(patients);
         LOGGER.info(MessageFormat.format(resourcePatient.getString("HM_I006"),patient.getPatientName()));
-       if(available < patients.length)
+       if(available < patients.length && patients.length != 0)
        {
            patients[available] = patient;
            return patient;
@@ -187,6 +190,8 @@ public class PatientServiceImpl implements PatientService {
             if(patient.getPatinetId() == patients[i].getPatinetId())
             {
                 return i;
+
+
             }
         }
 
@@ -194,7 +199,8 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public void getUserInput() {
+    public void triggerApplication() {
+            Scanner sc=new Scanner(System.in);
             LOGGER.info(resourcePatient.getString("HM_INPUT_001"));
             LOGGER.info(resourcePatient.getString("HM_INPUT_002"));
             LOGGER.info(resourcePatient.getString("HM_INPUT_003"));
@@ -202,38 +208,44 @@ public class PatientServiceImpl implements PatientService {
             LOGGER.info(resourcePatient.getString("HM_INPUT_011"));
             LOGGER.info(resourcePatient.getString("HM_INPUT_008"));
             LOGGER.info(resourcePatient.getString("HM_INPUT_009"));
-            input = scan.nextInt();
+            try {
+                input = sc.nextInt();
+            }catch (InputMismatchException e){
+
+                LOGGER.error(PatientConstants.INVALID_INPUT);
+                triggerApplication();
+            }
             switch (input)
             {
                 case 1:
                 {
                     inputForCreateNewUser();
-                    getUserInput();
+                    triggerApplication();
                 }
                 case 2:
                 {
                     readPatientWithUserInput();
-                    getUserInput();
+                    triggerApplication();
                 }
                 case 3:
                 {
                     updateUserWithUserInput();
-                    getUserInput();
+                    triggerApplication();
                 }
                 case 4:
                 {
                     deletePatientWithUserInout();
-                    getUserInput();
+                    triggerApplication();
                 }
                 case 5:
                 {
                     getAllPatients();
-                    getUserInput();;
+                    triggerApplication();;
                 }
                 case 6:
                     System.exit(0);
                 default:
-                    getUserInput();
+                    triggerApplication();
             }
     }
 
@@ -255,7 +267,7 @@ public class PatientServiceImpl implements PatientService {
         LOGGER.info(resourcePatient.getString("HM_INPUT_007"));
         newUser.setHomeTown(scan.nextLine());
         updatePatient(oldUser,newUser);
-        getUserInput();
+        triggerApplication();
     }
     public void deletePatientWithUserInout()
     {
