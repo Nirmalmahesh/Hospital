@@ -11,8 +11,8 @@ public interface PatientService {
     public Patient updatePatient(Patient patient,Patient update);
     public boolean deletePatient(Patient patient);
     public Patient getPatient();
-    public Integer getNumberOfPateintsAvailable(Patient[] patients);
-    public Integer getIndexOfPatient(Patient patient) throws PatientNotFoundException;
+    public int getNumberOfPateintsAvailable(Patient[] patients);
+    public int getIndexOfPatient(Patient patient) throws PatientNotFoundException;
     public void getUserInput();
 
 }

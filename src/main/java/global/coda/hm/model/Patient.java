@@ -1,7 +1,7 @@
 package global.coda.hm.model;
 
 public class Patient {
-    private Integer patinetId;
+    private int patinetId;
     private String patientName;
     private String homeTown;
 
@@ -29,11 +29,6 @@ public class Patient {
         this.homeTown = homeTown;
     }
 
-    public Patient(Integer patinetId, String patientName, String homeTown) {
-        this.patinetId = patinetId;
-        this.patientName = patientName;
-        this.homeTown = homeTown;
-    }
 
     @Override
     public String toString() {

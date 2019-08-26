@@ -7,7 +7,6 @@ public class HospitalManagement {
   public static void main(String[] args){
       PatientServiceImpl util = new PatientServiceImpl(5);
       util.getUserInput();
-
   }
 
 

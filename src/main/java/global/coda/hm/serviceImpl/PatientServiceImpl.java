@@ -19,9 +19,9 @@ import java.util.Scanner;
 public class PatientServiceImpl implements PatientService {
     Scanner scan;
     Logger LOGGER;
-    Integer number_of_patients;
+    int numberOfPatients;
     private Patient[] patients;
-    ResourceBundle RESOURCE_PATIENT;
+    ResourceBundle resourcePatient;
     int input;
 
     public Scanner getScan() {
@@ -40,12 +40,12 @@ public class PatientServiceImpl implements PatientService {
         this.LOGGER = LOGGER;
     }
 
-    public Integer getNumber_of_patients() {
-        return number_of_patients;
+    public int getnumberOfPatients() {
+        return numberOfPatients;
     }
 
-    public void setNumber_of_patients(Integer number_of_patients) {
-        this.number_of_patients = number_of_patients;
+    public void setnumberOfPatients(int numberOfPatients) {
+        this.numberOfPatients = numberOfPatients;
     }
 
     public Patient[] getPatients() {
@@ -56,21 +56,21 @@ public class PatientServiceImpl implements PatientService {
         this.patients = patients;
     }
 
-    public ResourceBundle getRESOURCE_PATIENT() {
-        return RESOURCE_PATIENT;
+    public ResourceBundle getresourcePatient() {
+        return resourcePatient;
     }
 
-    public void setRESOURCE_PATIENT(ResourceBundle RESOURCE_PATIENT) {
-        this.RESOURCE_PATIENT = RESOURCE_PATIENT;
+    public void setresourcePatient(ResourceBundle resourcePatient) {
+        this.resourcePatient = resourcePatient;
     }
 
-    public PatientServiceImpl(Integer number_of_patients) {
+    public PatientServiceImpl(int numberOfPatients) {
         scan = new Scanner(System.in);
-        this.number_of_patients = number_of_patients;
+        this.numberOfPatients = numberOfPatients;
         LOGGER = LoggerFactory.getLogger(PatientServiceImpl.class);
-        RESOURCE_PATIENT = ResourceBundle.getBundle("patient_info");
-        patients = new Patient[number_of_patients];
-        LOGGER.info(MessageFormat.format(RESOURCE_PATIENT.getString("HM_I002"),number_of_patients));
+        resourcePatient = ResourceBundle.getBundle("patient_info");
+        patients = new Patient[numberOfPatients];
+        LOGGER.info(MessageFormat.format(resourcePatient.getString("HM_I002"),numberOfPatients));
 
     }
 
@@ -78,17 +78,17 @@ public class PatientServiceImpl implements PatientService {
     {
         scan = new Scanner(System.in);
         LOGGER = LoggerFactory.getLogger(PatientServiceImpl.class);
-        RESOURCE_PATIENT = ResourceBundle.getBundle("patient_info");
-        LOGGER.info(RESOURCE_PATIENT.getString("HM_I001"));
-        number_of_patients = scan.nextInt();
-        patients = new Patient[number_of_patients];
-        LOGGER.info(MessageFormat.format(RESOURCE_PATIENT.getString("HM_I002"),number_of_patients));
+        resourcePatient = ResourceBundle.getBundle("patient_info");
+        LOGGER.info(resourcePatient.getString("HM_I001"));
+        numberOfPatients = scan.nextInt();
+        patients = new Patient[numberOfPatients];
+        LOGGER.info(MessageFormat.format(resourcePatient.getString("HM_I002"),numberOfPatients));
     }
     @Override
     public Patient createPatient(Patient patient) throws NoMoreAdmissionException {
-        Integer length = patients.length;
-        Integer available = getNumberOfPateintsAvailable(patients);
-        LOGGER.info(MessageFormat.format(RESOURCE_PATIENT.getString("HM_I006"),patient.getPatientName()));
+        int length = patients.length;
+        int available = getNumberOfPateintsAvailable(patients);
+        LOGGER.info(MessageFormat.format(resourcePatient.getString("HM_I006"),patient.getPatientName()));
        if(available < patients.length)
        {
            patients[available] = patient;
@@ -101,8 +101,8 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public Patient readPatient(Patient patient) throws PatientNotFoundException {
-        Integer length = getNumberOfPateintsAvailable(patients);
-        Integer count = 0;
+        int length = getNumberOfPateintsAvailable(patients);
+        int count = 0;
         while (patients[count]!=null && count<length){
 
             if(patients[count].getPatinetId() == patient.getPatinetId())
@@ -123,13 +123,13 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public Patient updatePatient(Patient patient, Patient update) {
-        Integer index;
+        int index;
         try {
             index = getIndexOfPatient(patient);
             patients[index].setHomeTown(update.getHomeTown());
             patients[index].setPatientName(update.getPatientName());
             patients[index].setPatinetId(update.getPatinetId());
-            LOGGER.info(MessageFormat.format(RESOURCE_PATIENT.getString("HM_I007"),update.getPatinetId()));
+            LOGGER.info(MessageFormat.format(resourcePatient.getString("HM_I007"),update.getPatinetId()));
             return patients[index];
 
         } catch (PatientNotFoundException e) {
@@ -142,7 +142,7 @@ public class PatientServiceImpl implements PatientService {
     @Override
     public boolean deletePatient(Patient patient) {
         try {
-            Integer index = getIndexOfPatient(patient);
+            int index = getIndexOfPatient(patient);
             int i;
             for( i=index;i<patients.length && patients[i+1]!=null ;i++)
             {
@@ -160,7 +160,7 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public Patient getPatient() {
-        LOGGER.info(RESOURCE_PATIENT.getString("HM_I003"));
+        LOGGER.info(resourcePatient.getString("HM_I003"));
         Patient patient = new Patient();
         patient.setPatinetId(scan.nextInt());
         patient.setPatientName(scan.nextLine());
@@ -169,9 +169,9 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public Integer getNumberOfPateintsAvailable(Patient[] patients) {
-        Integer patientCount = 0;
-        Integer count = 0;
+    public int getNumberOfPateintsAvailable(Patient[] patients) {
+        int patientCount = 0;
+        int count = 0;
         while(patients.length>count && patients[count]!=null)
         {
             count++;
@@ -181,7 +181,7 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public Integer getIndexOfPatient(Patient patient) throws PatientNotFoundException {
+    public int getIndexOfPatient(Patient patient) throws PatientNotFoundException {
         for(int i=0;patients[i]!=null && i<getNumberOfPateintsAvailable(patients);i++)
         {
             if(patient.getPatinetId() == patients[i].getPatinetId())
@@ -195,13 +195,13 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public void getUserInput() {
-            LOGGER.info(RESOURCE_PATIENT.getString("HM_INPUT_001"));
-            LOGGER.info(RESOURCE_PATIENT.getString("HM_INPUT_002"));
-            LOGGER.info(RESOURCE_PATIENT.getString("HM_INPUT_003"));
-            LOGGER.info(RESOURCE_PATIENT.getString("HM_INPUT_004"));
-            LOGGER.info(RESOURCE_PATIENT.getString("HM_INPUT_011"));
-            LOGGER.info(RESOURCE_PATIENT.getString("HM_INPUT_008"));
-            LOGGER.info(RESOURCE_PATIENT.getString("HM_INPUT_009"));
+            LOGGER.info(resourcePatient.getString("HM_INPUT_001"));
+            LOGGER.info(resourcePatient.getString("HM_INPUT_002"));
+            LOGGER.info(resourcePatient.getString("HM_INPUT_003"));
+            LOGGER.info(resourcePatient.getString("HM_INPUT_004"));
+            LOGGER.info(resourcePatient.getString("HM_INPUT_011"));
+            LOGGER.info(resourcePatient.getString("HM_INPUT_008"));
+            LOGGER.info(resourcePatient.getString("HM_INPUT_009"));
             input = scan.nextInt();
             switch (input)
             {
@@ -240,19 +240,19 @@ public class PatientServiceImpl implements PatientService {
     private void getAllPatients() {
         for(int i = 0;i<getNumberOfPateintsAvailable(patients);i++)
         {
-            LOGGER.info(MessageFormat.format(RESOURCE_PATIENT.getString("HM_I008"),i+1));
+            LOGGER.info(MessageFormat.format(resourcePatient.getString("HM_I008"),i+1));
             LOGGER.info(patients[i].toString());
         }
     }
 
     private void updateUserWithUserInput() {
-        LOGGER.info(RESOURCE_PATIENT.getString("HM_INPUT_010"));
+        LOGGER.info(resourcePatient.getString("HM_INPUT_010"));
         Patient oldUser = readPatientWithUserInput();
         Patient newUser = oldUser;
         scan.nextLine();
-        LOGGER.info(RESOURCE_PATIENT.getString("HM_INPUT_006"));
+        LOGGER.info(resourcePatient.getString("HM_INPUT_006"));
         newUser.setPatientName(scan.nextLine());
-        LOGGER.info(RESOURCE_PATIENT.getString("HM_INPUT_007"));
+        LOGGER.info(resourcePatient.getString("HM_INPUT_007"));
         newUser.setHomeTown(scan.nextLine());
         updatePatient(oldUser,newUser);
         getUserInput();
@@ -260,7 +260,7 @@ public class PatientServiceImpl implements PatientService {
     public void deletePatientWithUserInout()
     {
         int index;
-        LOGGER.info(RESOURCE_PATIENT.getString("HM_INPUT_005"));
+        LOGGER.info(resourcePatient.getString("HM_INPUT_005"));
         Patient patient = new Patient();
         patient.setPatinetId(scan.nextInt());
        deletePatient(patient);
@@ -268,7 +268,7 @@ public class PatientServiceImpl implements PatientService {
 
     private Patient readPatientWithUserInput() {
         Patient patient = new Patient();
-        LOGGER.info(RESOURCE_PATIENT.getString("HM_INPUT_005"));
+        LOGGER.info(resourcePatient.getString("HM_INPUT_005"));
         patient.setPatinetId(scan.nextInt());
         try {
             LOGGER.info(readPatient(patient).toString());
@@ -283,12 +283,12 @@ public class PatientServiceImpl implements PatientService {
     private void inputForCreateNewUser() {
         Patient patient = new Patient();
         int index = 0;
-        LOGGER.info(RESOURCE_PATIENT.getString("HM_INPUT_005"));
+        LOGGER.info(resourcePatient.getString("HM_INPUT_005"));
         patient.setPatinetId(scan.nextInt());
         scan.nextLine();
-        LOGGER.info(RESOURCE_PATIENT.getString("HM_INPUT_006"));
+        LOGGER.info(resourcePatient.getString("HM_INPUT_006"));
         patient.setPatientName(scan.nextLine());
-        LOGGER.info(RESOURCE_PATIENT.getString("HM_INPUT_007"));
+        LOGGER.info(resourcePatient.getString("HM_INPUT_007"));
         patient.setHomeTown(scan.nextLine());
         try {
             index = getIndexOfPatient(patient);
