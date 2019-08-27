@@ -1,6 +1,5 @@
 package global.coda.hm.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Patient {
@@ -36,7 +35,5 @@ public class Patient {
         this.patientAddress = patientAddress;
     }
 
-    public Patient() {
-        patientAddress = new ArrayList<String>();
-    }
+
 }

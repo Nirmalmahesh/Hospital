@@ -1,7 +1,6 @@
-package global.coda.hm.serviceImpl;
+package global.coda.hm.service.impl;
 
 import global.coda.hm.constants.PatientConstants;
-import global.coda.hm.exception.NoMoreAdmissionException;
 import global.coda.hm.exception.PatientNotFoundException;
 import global.coda.hm.model.Patient;
 import global.coda.hm.service.PatientService;
@@ -30,51 +29,42 @@ public class PatientServiceImpl implements PatientService {
         LOGGER = LoggerFactory.getLogger(PatientServiceImpl.class);
         resourcePatient = ResourceBundle.getBundle("patient_info");
         patients = new TreeMap<Integer, Patient>();
-
-
     }
-
-
     @Override
     public Patient createPatient(Patient patient) {
         patients.putIfAbsent(patient.getPatinetId(),patient);
-        LOGGER.info(resourcePatient.getString("HM_IT002"));
+        LOGGER.info(MessageFormat.format(resourcePatient.getString(PatientConstants.PatientEnum.HM_I006.toString()),patient.getPatientName()));
         return patient;
     }
-
     @Override
-    public Patient readPatient(Patient patient) throws PatientNotFoundException {
+    public Patient readPatient(int patientId) throws PatientNotFoundException {
         Patient finded = null;
         try {
-             finded = patients.get(patient.getPatinetId());
+             finded = patients.get(patientId);
              return finded;
         }catch (NullPointerException e){
           throw new PatientNotFoundException(PatientConstants.PATIENT_NOT_FOUND);
         }
     }
-
     @Override
     public Map<Integer, Patient> readAllPatients() {
         return patients;
-
     }
-
     @Override
-    public Patient updatePatient(Patient patient, Patient update) {
+    public Patient updatePatient(int patientId, Patient update) {
         int index;
         try {
-            Patient oldPatient = patients.get(patient.getPatinetId());
+            Patient oldPatient = patients.get(patientId);
             if(oldPatient==null)
             {
                 throw new PatientNotFoundException(PatientConstants.PATIENT_NOT_FOUND);
             }
-            patients.put(patient.getPatinetId(),update);
-            return patients.get(patient.getPatinetId());
+            patients.put(patientId,update);
+            return patients.get(patientId);
 
         } catch (PatientNotFoundException e) {
             LOGGER.info(PatientConstants.PATIENT_NOT_FOUND);
         }
-
     return null;
     }
 
@@ -87,23 +77,13 @@ public class PatientServiceImpl implements PatientService {
                 throw new PatientNotFoundException(PatientConstants.PATIENT_NOT_FOUND);
             }
             patients.remove(patient.getPatinetId());
-            LOGGER.debug(MessageFormat.format(resourcePatient.getString("HM_IT006"),patient.getPatinetId()));
+            LOGGER.debug(MessageFormat.format(resourcePatient.getString(PatientConstants.PatientEnum.HM_I009.toString()),patient.getPatinetId()));
             return true;
         } catch (PatientNotFoundException e) {
             LOGGER.error(PatientConstants.PATIENT_NOT_FOUND);
             return false;
         }
     }
-
-    /*@Override
-    public Patient getPatient() {
-        LOGGER.info(resourcePatient.getString("HM_I003"));
-        Patient patient = new Patient();
-        patient.setPatinetId(scan.nextInt());
-        patient.setPatientName(scan.nextLine());
-        patient.setHomeTown(scan.nextLine());
-        return patient;
-    }*/
 
     @Override
     public int getNumberOfPateintsAvailable(Patient[] patients) {
@@ -122,13 +102,13 @@ public class PatientServiceImpl implements PatientService {
     @Override
     public void triggerApplication() {
             Scanner sc=new Scanner(System.in);
-            LOGGER.info(resourcePatient.getString("HM_INPUT_001"));
-            LOGGER.info(resourcePatient.getString("HM_INPUT_002"));
-            LOGGER.info(resourcePatient.getString("HM_INPUT_003"));
-            LOGGER.info(resourcePatient.getString("HM_INPUT_004"));
-            LOGGER.info(resourcePatient.getString("HM_INPUT_011"));
-            LOGGER.info(resourcePatient.getString("HM_INPUT_008"));
-            LOGGER.info(resourcePatient.getString("HM_INPUT_009"));
+            LOGGER.info(resourcePatient.getString(PatientConstants.PatientEnum.HM_INPUT_001.toString()));
+            LOGGER.info(resourcePatient.getString(PatientConstants.PatientEnum.HM_INPUT_002.toString()));
+            LOGGER.info(resourcePatient.getString(PatientConstants.PatientEnum.HM_INPUT_003.toString()));
+            LOGGER.info(resourcePatient.getString(PatientConstants.PatientEnum.HM_INPUT_004.toString()));
+            LOGGER.info(resourcePatient.getString(PatientConstants.PatientEnum.HM_INPUT_011.toString()));
+            LOGGER.info(resourcePatient.getString(PatientConstants.PatientEnum.HM_INPUT_008.toString()));
+            LOGGER.info(resourcePatient.getString(PatientConstants.PatientEnum.HM_INPUT_009.toString()));
             try {
                 input = sc.nextInt();
             }catch (InputMismatchException e){
@@ -189,26 +169,26 @@ public class PatientServiceImpl implements PatientService {
 
     private void updateUserWithUserInput() {
         List<String> address = new ArrayList<>();
-        LOGGER.info(resourcePatient.getString("HM_INPUT_010"));
+        LOGGER.info(resourcePatient.getString(PatientConstants.PatientEnum.HM_INPUT_010.toString()));
         Patient oldUser = readPatientWithUserInput();
         Patient newUser = oldUser;
         scan.nextLine();
-        LOGGER.info(resourcePatient.getString("HM_INPUT_006"));
+        LOGGER.info(resourcePatient.getString(PatientConstants.PatientEnum.HM_INPUT_006.toString()));
         newUser.setPatientName(scan.nextLine());
-        LOGGER.info(resourcePatient.getString("HM_INPUT_007"));
+        LOGGER.info(resourcePatient.getString(PatientConstants.PatientEnum.HM_INPUT_007.toString()));
         address.add(scan.nextLine());
-        LOGGER.info(resourcePatient.getString("HM_INPUT_012"));
+        LOGGER.info(resourcePatient.getString(PatientConstants.PatientEnum.HM_INPUT_012.toString()));
         address.add(scan.nextLine());
-        LOGGER.info(resourcePatient.getString("HM_INPUT_013"));
+        LOGGER.info(resourcePatient.getString(PatientConstants.PatientEnum.HM_INPUT_013.toString()));
         address.add(scan.nextLine());
         newUser.setPatientAddress(address);
-        updatePatient(oldUser,newUser);
+        updatePatient(oldUser.getPatinetId(),newUser);
         triggerApplication();
     }
     public void deletePatientWithUserInout()
     {
         int index;
-        LOGGER.info(resourcePatient.getString("HM_INPUT_005"));
+        LOGGER.info(resourcePatient.getString(PatientConstants.PatientEnum.HM_INPUT_005.toString()));
         Patient patient = new Patient();
         patient.setPatinetId(scan.nextInt());
        deletePatient(patient);
@@ -216,16 +196,16 @@ public class PatientServiceImpl implements PatientService {
 
     private void displayPatient(Patient patient){
         LOGGER.info(patient.getPatinetId().toString());
-        LOGGER.info(resourcePatient.getString("HM_DECO_001"));
+        LOGGER.info(resourcePatient.getString(PatientConstants.PatientEnum.HM_DECO_001.toString()));
         LOGGER.info(patient.getPatientName());
         LOGGER.info(patient.getPatientAddress().toString());
     }
     private Patient readPatientWithUserInput() {
         Patient patient = new Patient();
-        LOGGER.info(resourcePatient.getString("HM_INPUT_005"));
+        LOGGER.info(resourcePatient.getString(PatientConstants.PatientEnum.HM_INPUT_005.toString()));
         patient.setPatinetId(scan.nextInt());
         try {
-            patient =readPatient(patient);
+            patient =readPatient(patient.getPatinetId());
             displayPatient(patient);
             return patient;
         } catch (NullPointerException e) {
@@ -241,16 +221,16 @@ public class PatientServiceImpl implements PatientService {
         Patient patient = new Patient();
         List<String> address = new ArrayList<>();
         int index = 0;
-        LOGGER.info(resourcePatient.getString("HM_INPUT_005"));
-        patient.setPatinetId(scan.nextInt());
-        scan.nextLine();
-        LOGGER.info(resourcePatient.getString("HM_INPUT_006"));
+        LOGGER.info(resourcePatient.getString(PatientConstants.PatientEnum.HM_INPUT_005.toString()));
+        patient.setPatinetId(Integer.parseInt(scan.nextLine()));
+        //scan.nextLine();
+        LOGGER.info(resourcePatient.getString(PatientConstants.PatientEnum.HM_INPUT_006.toString()));
         patient.setPatientName(scan.nextLine());
-        LOGGER.info(resourcePatient.getString("HM_INPUT_007"));
+        LOGGER.info(resourcePatient.getString(PatientConstants.PatientEnum.HM_INPUT_007.toString()));
         address.add(scan.nextLine());
-        LOGGER.info(resourcePatient.getString("HM_INPUT_012"));
+        LOGGER.info(resourcePatient.getString(PatientConstants.PatientEnum.HM_INPUT_012.toString()));
         address.add(scan.nextLine());
-        LOGGER.info(resourcePatient.getString("HM_INPUT_013"));
+        LOGGER.info(resourcePatient.getString(PatientConstants.PatientEnum.HM_INPUT_013.toString()));
         address.add(scan.nextLine());
         patient.setPatientAddress(address);
         Patient oldRecord = patients.get(patient.getPatinetId());

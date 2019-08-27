@@ -2,6 +2,8 @@ package PatientUtilChecker.constants;
 
 import global.coda.hm.model.Patient;
 
+import java.util.Arrays;
+
 public class PatientConstants {
 
     public static final Integer no_of_patients = 5;
@@ -10,7 +12,7 @@ public class PatientConstants {
         Patient patient = new Patient();
         patient.setPatinetId(1);
         patient.setPatientName("Nirmalmahesh");
-        patient.setHomeTown("Karur");
+        patient.setPatientAddress(Arrays.asList("velliyanai","karur","639118"));
         return patient;
     }
     public static Patient[] getSixPatients()

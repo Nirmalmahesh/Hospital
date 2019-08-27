@@ -9,11 +9,10 @@ import java.util.TreeMap;
 
 public interface PatientService {
     public Patient createPatient(Patient patient) throws NoMoreAdmissionException;
-    public Patient readPatient(Patient patient) throws PatientNotFoundException;
+    public Patient readPatient(int patientId) throws PatientNotFoundException;
     public Map<Integer, Patient> readAllPatients();
-    public Patient updatePatient(Patient patient,Patient update);
+    public Patient updatePatient(int patientId,Patient update);
     public boolean deletePatient(Patient patient);
-    //public Patient getPatient();
     public int getNumberOfPateintsAvailable(Patient[] patients);
 
     public void triggerApplication();
